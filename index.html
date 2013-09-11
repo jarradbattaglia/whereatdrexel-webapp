@@ -11,24 +11,60 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/foundation.min.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
         <link rel="stylesheet" href="css/leaflet.css" />
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="css/leaflet.ie.css" />
+        <!--[if !IE 7]>
+            <style type="text/css">
+                #wrap {display:table;height:100%}
+            </style>
         <![endif]-->
-        
+
+       <![endif]-->
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-         <div id="map"></div>
+        <nav class="top-bar">
+            <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="#">Where at Drexel?</a></h1>
+            </li>
+            </ul>
+        </nav> <!-- End TopBar -->
+
+        <!-- Content goes here -->
+        <div id="wrap">
+        <div class="row" id="main">
+            <div class="large-3 columns panel">
+            </div>
+            <div class="large-9 columns">
+                    <div class="row">
+                    <div id="map"></div>
+                    </div>
+                    <div class="row panel">
+                    </div>
+            </div>
+        </div>
+        </div>
+        <div id="footer">
+        </div>
+
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/vendor/leaflet.js"></script>
+        <script src="js/vendor/foundation.min.js"></script>
         <script src="js/plugins.js"></script>
+        <script>
+
+        </script>
         <script>
             var map = L.map('map');
 
