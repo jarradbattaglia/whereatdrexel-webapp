@@ -38,46 +38,76 @@
               <h1><a href="#">Where at Drexel?</a></h1>
             </li>
             </ul>
+            <section class="top-bar-section">
+                <ul class="left">
+                    <li><a href="#" data-reveal-id="about-modal">About</a></li>
+                    <li><a href="#" data-reveal-id="help-modal">Help</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="#" data-reveal-id="github-modal">Github</a></li>
+                </ul>
+            </section>
         </nav> <!-- End TopBar -->
 
+        <!-- Modals go here -->
+        <div id="about-modal" class="reveal-modal" style="z-index:10000;">
+            <h2>About</h2>
+            <p>TODO: Stuff about what tools we used to make this (Flask, Knockout, SQLAlchemy, Leaflet) + links to the sites, who made it, etc.</p>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+        <div id="help-modal" class="reveal-modal" style="z-index:10000;">
+            <h2>Help</h2>
+            <p>TODO: Something about typing in the search box and clicking a link in order to go to it. Maybe something about clearing the search box to reset the results. Give some examples of what you can search for, like building names and classes (both full name and short name) and descriptions of what they are (like dorm).</p>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+        <div id="github-modal" class="reveal-modal" style="z-index:10000;">
+            <h2>Github</h2>
+            <p>TODO: Links to both github repos</p>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+
+
+        <div class="reveal-modal-bg" style="display: none; z-index:9000;"></div>
+        <!-- Modals end here -->
+
         <!-- Content goes here -->
-        <div id="wrap">
-        <div class="row" id="main">
-            <div class="large-3 columns panel">
+        <div class="row">
+            <div class="large-3 columns panel shadow" id="search-container">
+                <form data-bind="submit: searchDrexel">
+                    <div class="row">
+                        <div class="small-12 columns">
+                          <input data-bind="value: searchTerm, valueUpdate:'afterkeydown'" type="text" id="right-label" placeholder="Search Drexel" >
+                        </div>
+                    </div>
+                </form>
+                <hr />
+                <div id="search-results">
+                <ul data-bind="foreach: searchResults">
+                    <li ><a href="#" data-bind="click: focusOn"><span data-bind="text: $data.name"></a></span></a></li>
+                </ul>
+                </div>
             </div>
-            <div class="large-9 columns">
+            <div class="large-9 columns shadow" id="map-container">
                     <div class="row">
                     <div id="map"></div>
                     </div>
                     <div class="row panel">
                     </div>
             </div>
-        </div>
-        </div>
-        <div id="footer">
-        </div>
+        </div> <!-- Content ends here -->
 
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/vendor/knockout-2.3.0.js"></script>
         <script src="js/vendor/leaflet.js"></script>
         <script src="js/vendor/foundation.min.js"></script>
         <script src="js/plugins.js"></script>
+        <script src="js/whereatdrexel.js"></script>
         <script>
-
+            $(document).foundation();
         </script>
-        <script>
-            var map = L.map('map');
-
-            var southWest = new L.LatLng(39.948927, -75.215149),
-                northEast = new L.LatLng(39.966427, -75.171547),
-                   bounds = new L.LatLngBounds(southWest, northEast);
-            map.fitBounds(bounds);
-
-            map.setMaxBounds(bounds);
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
-        </script>
-
     </body>
 </html>

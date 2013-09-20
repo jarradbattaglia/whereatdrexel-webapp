@@ -18,12 +18,30 @@ textarea {
     color: #222;
 }
 
-body {
+html, body {
     font-size: 1em;
     line-height: 1.4;
-    background:#f4f4f4;
+    height: 100%;
+    width: 100%;
+    background: #e4e4e4;
 }
 
+.shadow {
+    -moz-box-shadow:    1px 1px 2px 2px #444;
+    -webkit-box-shadow: 1px 1px 2px 2px #444;
+    box-shadow:         1px 1px 2px 2px #444;
+}
+
+
+#search-container{
+    margin-right: -10px;
+    margin-left: -10px;
+    height: 642px;
+}
+
+#map-container{
+    background: #f4f4f4;
+}
 #map { height: 600px; }
 
 /*
@@ -181,40 +199,6 @@ textarea {
 .invisible {
     visibility: hidden;
 }
-/*  
-Sticky Footer Solution
-by Steve Hatcher 
-http://stever.ca
-http://www.cssstickyfooter.com
-*/
-
-* {margin:0;padding:0;} 
-
-/* must declare 0 margins on everything, also for main layout components use padding, not 
-vertical margins (top and bottom) to add spacing, else those margins get added to total height 
-and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
-
-html, body {height: 100%;}
-
-#wrap {min-height: 100%;}
-
-#main {overflow:auto;
-    padding-bottom: 100px;}  /* must be same height as the footer */
-
-#footer {position: relative;
-    margin-top: -100px; /* negative value of footer height */
-    height: 100px;
-    clear:both;} 
-
-/*Opera Fix*/
-body:before {/* thanks to Maleika (Kohoutec)*/
-content:"";
-height:100%;
-float:left;
-width:0;
-margin-top:-32767px;/* thank you Erik J - negate effect of float*/
-}
-
 
 /*
  * Clearfix: contain floats
