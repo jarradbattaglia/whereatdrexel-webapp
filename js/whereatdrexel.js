@@ -12,6 +12,7 @@ $(document).ready(function(){
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
     map.panTo([39.957433, -75.189292]);
+
     var markerBuilding = L.AwesomeMarkers.icon({
         icon: 'building', 
         color: 'darkblue'
@@ -28,9 +29,6 @@ $(document).ready(function(){
         icon: 'pencil', 
         color: 'blue'
     });
-
-
-    //L.marker([39.957433, -75.189292], {icon: redMarker}).addTo(map);
 
 
     // Tile Layer
@@ -97,9 +95,8 @@ $(document).ready(function(){
 
     $.getJSON(rootURL + '/api/buildings', function(data) {
         cachedLocations = data.locations;
-        mapLocations = cachedLocations;
     }).done(function() {
-        updateMap();
+        searchFor('');
     });
 
     window.searchFor = function(searchValue) {
@@ -107,7 +104,6 @@ $(document).ready(function(){
             searchVM.searchResults.removeAll();
             mapLocations = cachedLocations; 
             updateMap();
-            return 0;
         };
 
         $.ajax({
