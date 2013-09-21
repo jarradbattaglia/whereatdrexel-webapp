@@ -38,6 +38,16 @@ html, body {
     margin-left: -10px;
     height: 642px;
 }
+#search-entry{
+    overflow:hidden; 
+    height:30px; 
+    background:#f2f2f2; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+    margin-top: 5px; 
+    padding-left: 10px;
+}
 
 #map-container{
     background: #f4f4f4;
