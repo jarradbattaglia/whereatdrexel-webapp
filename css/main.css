@@ -38,10 +38,19 @@ html, body {
     margin-left: -10px;
     height: 642px;
 }
-#search-entry{
+
+.search-entry a:link{
+    color: #f2f2f2;
+}
+
+.search-entry a:visited{
+    color: #f2f2f2;
+}
+
+.search-entry{
     overflow:hidden; 
     height:30px; 
-    background:#f2f2f2; 
+    background-color: #07294D; 
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px; 
