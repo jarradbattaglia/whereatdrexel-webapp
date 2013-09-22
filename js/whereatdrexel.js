@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     window.markerLocations = L.layerGroup();
-    var rootURL = 'http://localhost:5000'
+    var rootURL = 'http://whereatdrexel.com'
     var map = L.map('map',{
         layers: [markerLocations]
     });
