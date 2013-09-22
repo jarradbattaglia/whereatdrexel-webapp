@@ -56,10 +56,11 @@
         <!-- Modals go here -->
         <div id="about-modal" class="reveal-modal" style="z-index:10000;">
             <h2>About</h2>
-            <p>Backend is using Flask to create webpages and SQLAlchemy to execute database commands. (<a href="http://www.flask.pocoo.org">Link</a>)</p>
-            <p>Map was created using LeafletJS (<a href="http://www.leafletjs.com">Link</a>)</p>
-            <p>UI site uses KnockoutJS (<a href="http://www.knockoutjs.com">Link</a>)
-            <p>Created by Timothy Hahn and Jarrad Battaglia (Jarrad only did Admin Page :D) </p>
+            <p>Backend uses <a href="http://flask.pocoo.org/">Flask</a> and <a href="http://www.sqlalchemy.org/">SQLAlchemy</a></p>
+            <p>Map was created using <a href="http://leafletjs.com/">LeafletJS</a></p>
+            <p>Website UI created using <a href="http://knockoutjs.com/">KnockoutJS</a></p>
+            <p>Icons from <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></p>
+            <p>Created by <a href="https://github.com/timothyhahn">Timothy Hahn</a> and <a href="https://github.com/maddchickenz">Jarrad Battaglia</a></p>
             <a class="close-reveal-modal">&#215;</a>
         </div>
 
@@ -67,16 +68,19 @@
             <h2>Help</h2>
             <p>To find a building or location better, use the search box on the left.</p>
             <p>Type in the search box the name of the location you are looking for. For Example 
-            type "Bossone" into the search box, the Bossone building will be highlighted and can click on the box to directly go to it </p>
-            <p> Erase the contents in the search box to bring back all locations </p>
-            <p> To find a class search for the class name so something like "cs 350" or "psy 101". </p>
-            <p> When you have found the class you are looking for you can click on its icon and find more information about it. </p>            
+            type "Bossone" into the search box, the Bossone building will be highlighted and can be clicked on to directly go to it </p>
+            <p>Erase the contents in the search box to bring back all locations </p>
+            <p>To find a class, search for the class name - something like "cs 350" or "psy 101". </p>
+            <p>When you have found the class you are looking for you can click on its icon and find more information about it. </p>            
             <a class="close-reveal-modal">&#215;</a>
         </div>
 
         <div id="github-modal" class="reveal-modal" style="z-index:10000;">
             <h2>Github</h2>
-            <p>TODO: Links to both github repos</p>
+            <ul>
+                <li>Frontend is available at: <a href="https://github.com/maddchickenz/whereatdrexel-webapp">https://github.com/maddchickenz/whereatdrexel-webapp</a></li>
+                <li>Backend is available at: <a href="https://github.com/timothyhahn/whereatdrexel-backend">https://github.com/timothyhahn/whereatdrexel-backend</a></li>
+            </ul>
             <a class="close-reveal-modal">&#215;</a>
         </div>
         
@@ -104,7 +108,7 @@
                 <hr />
                 <div id="search-results" style="height:90%; overflow:scroll;">
                     <ul data-bind="foreach: searchResults">
-                        <li class="search-entry"><a href="#" data-bind="click: focusOn"><span data-bind="text: $data.name"></a></span></a></li>
+                        <li class="search-entry"><a href="#" data-bind="click: focusOn" style="display:block;"><span data-bind="text: $data.name"></a></span></a></li>
                     </ul>
                 </div>
             </div>

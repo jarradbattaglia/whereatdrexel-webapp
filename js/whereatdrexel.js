@@ -57,7 +57,7 @@ $(document).ready(function(){
                 marker = markerCourse;
             }
             L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
-                .bindPopup('<h5><strong>' + location.name + '</strong></h5>' + location.description)
+                .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description)
         });
     }
 
@@ -82,13 +82,13 @@ $(document).ready(function(){
                 }
 
                 L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
-                .bindPopup('<h5><strong>' + location.name + '</strong></h5>' + location.description).openPopup();
+                .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description).openPopup();
                 if(target.latitude != 0.00)
                     map.panTo([location.latitude, location.longitude]);
             }
             else {
                 L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
-                    .bindPopup('<h5><strong>' + location.name + '</strong></h5>' + location.description)
+                    .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description)
             }
         });
     }
