@@ -108,7 +108,7 @@
                 <hr />
                 <div id="search-results" style="height:90%; overflow:scroll;">
                     <ul data-bind="foreach: searchResults">
-                        <li class="search-entry"><a href="#" data-bind="click: focusOn" style="display:block;"><span data-bind="text: $data.name"></a></span></a></li>
+                        <li class="search-entry"><a href="#" data-bind="click: focusOn" style="display:block;"><span data-bind="if: $data.exact_match"><i class="icon-star"></i></span><span data-bind="text: $data.name"></a></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -120,7 +120,6 @@
                     </div>
             </div>
         </div> <!-- Content ends here -->
-
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/vendor/knockout-2.3.0.js"></script>
