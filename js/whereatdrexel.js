@@ -1,11 +1,14 @@
 $(document).ready(function(){
 
-    window.markerLocations = L.layerGroup();
+
     var rootURL = 'http://whereatdrexel.com'
+    // Where markers are stored
+    window.markerLocations = L.layerGroup();
     var map = L.map('map',{
         layers: [markerLocations]
     });
-       // Bounds for map
+
+    // Bounds for map
     var southWest = new L.LatLng(39.948927, -75.215149),
         northEast = new L.LatLng(39.966427, -75.171547),
         bounds = new L.LatLngBounds(southWest, northEast);
@@ -13,6 +16,7 @@ $(document).ready(function(){
     map.setMaxBounds(bounds);
     map.panTo([39.957433, -75.189292]);
 
+    // Markers for map
     var markerBuilding = L.AwesomeMarkers.icon({
         icon: 'building', 
         color: 'darkblue'
@@ -33,9 +37,11 @@ $(document).ready(function(){
 
     // Tile Layer
     L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg', {
-    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> &copy; <a href="httpL//osm.org/copyright">OpenStreetMap</a> contributors'
+    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> &copy; <a href="httpL//osm.org/copyright">OpenStreetMap</a> contributors',
+    detectRetina: true
     }).addTo(map);
 
+    // Results data structure
     function Result(data){
         this.name = data.name;
         this.short_name = data.short_name;
@@ -44,8 +50,10 @@ $(document).ready(function(){
         this.description = data.description;
         this.id = data.id;
         this.type = data.type;
+        this.exact_match = data.exact_match;
     }
 
+    // To store the default locations at Drexel
     var mapLocations = [];
     var cachedLocations;
 
@@ -61,6 +69,7 @@ $(document).ready(function(){
         });
     }
 
+    // Focus on a specific marker
     window.focusOn = function(target){
         markerLocations.clearLayers();
         $.each(mapLocations, function(i, location){
@@ -93,10 +102,13 @@ $(document).ready(function(){
         });
     }
 
+    // Grab default buildings list
     $.getJSON(rootURL + '/api/buildings', function(data) {
         cachedLocations = data.locations;
     }).done(function() {
         searchFor('');
+    }).error(function() {
+        window.location.replace("error.html");
     });
 
     window.searchFor = function(searchValue) {
@@ -117,7 +129,9 @@ $(document).ready(function(){
                 updateMap();
 
             },
-            error: function (xhr, textStatus, errorThrown) { console.log('error ' + (errorThrown ? errorThrown : xhr.status) + textStatus); }
+            error: function (xhr, textStatus, errorThrown) { 
+                window.location.replace("error.html");
+            }
         });
 
     }
