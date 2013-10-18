@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    var rootURL = 'http://whereatdrexel.com'
+    var rootURL = 'http://whereatdrexel.com';
     // Where markers are stored
     window.markerLocations = L.layerGroup();
     var map = L.map('map',{
@@ -65,7 +65,7 @@ $(document).ready(function(){
                 marker = markerCourse;
             }
             L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
-                .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description)
+                .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description);
         });
     }
 
@@ -73,7 +73,7 @@ $(document).ready(function(){
     window.focusOn = function(target){
         markerLocations.clearLayers();
         $.each(mapLocations, function(i, location){
-            var marker = markerBuilding
+            var marker = markerBuilding;
             if (location.type == 'course'){
                 marker = markerCourse;
             }
@@ -85,19 +85,19 @@ $(document).ready(function(){
                     marker = selectedBuilding;
                 }
 
-                if(target.latitude == 0.00){
+                if(target.latitude === 0.00){
                     $('div#location-info').html(target.description);
                     $('#info-modal').foundation('reveal', 'open');
                 }
 
                 L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
                 .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description).openPopup();
-                if(target.latitude != 0.00)
+                if(target.latitude !== 0.00)
                     map.panTo([location.latitude, location.longitude]);
             }
             else {
                 L.marker([location.latitude, location.longitude], {icon: marker}).addTo(markerLocations)
-                    .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description)
+                    .bindPopup('<h5><strong>' + location.name + '</strong> <em>(' + location.short_name + ')</em></h5>' + location.description);
             }
         });
     }
@@ -112,11 +112,11 @@ $(document).ready(function(){
     });
 
     window.searchFor = function(searchValue) {
-        if (searchValue == '') {
+        if (searchValue === '') {
             searchVM.searchResults.removeAll();
             mapLocations = cachedLocations; 
             updateMap();
-        };
+        }
 
         $.ajax({
             url: rootURL + '/api/search/' + searchValue,
@@ -134,7 +134,7 @@ $(document).ready(function(){
             }
         });
 
-    }
+    };
     // ViewModel for search
     var searchVM = {
             searchDrexel : function(formElement) {
