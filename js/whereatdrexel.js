@@ -79,6 +79,11 @@ $(document).ready(function(){
 
     // Focus on a specific marker
     window.focusOn = function(target){
+        if($("#msearch-results")){
+            $("#msearch-results").slideUp();
+            $("#map").slideDown();
+        }
+
         markerLocations.clearLayers();
         $.each(mapLocations, function(i, location){
             var marker = markerBuilding;
@@ -115,6 +120,17 @@ $(document).ready(function(){
 
     // Search function
     var searchFor = function(searchValue) {
+        if($("#msearch-results")) {
+            if(searchValue === ''){
+                $("#msearch-results").slideUp();
+                $("#map").slideDown();
+            } else {
+                $("#msearch-results").slideDown();
+                $("#map").slideUp();
+
+            }
+        }
+
         $.ajax({
             url: rootURL + '/api/search/' + searchValue,
             success: function(data){
@@ -129,7 +145,6 @@ $(document).ready(function(){
                 window.location.replace("error.html");
             }
         });
-
     };
 
     // Grab all buildings to start with
