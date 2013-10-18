@@ -8,6 +8,10 @@
 
 ## Changelog:
 
+* v1.0.2 Addressed these issues:
+    * Non responsive layout https://github.com/maddchickenz/whereatdrexel-webapp/issues/3
+    * Solved with a mobile version of the site
+    
 * v1.0.1 Addressed these issues:
     * Error handling https://github.com/maddchickenz/whereatdrexel-webapp/issues/7
     * Blurry on retina https://github.com/maddchickenz/whereatdrexel-webapp/issues/2
