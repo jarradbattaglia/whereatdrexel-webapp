@@ -35,7 +35,7 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <div id="search">
+        <div id="search" class="row">
             <form data-bind="submit: searchDrexel">
                 <div class="row">
                     <div class="small-12 columns">
@@ -51,7 +51,7 @@
 
         
         </div>
-        <div id="msearch-results">
+        <div id="msearch-results" class="row">
             <ul data-bind="foreach: searchResults">
                 <li class="search-entry"><a href="#" data-bind="click: focusOn" style="display:block;"><span data-bind="if: $data.exact_match"><i class="icon-star"></i></span><span data-bind="text: $data.name"></a></span></a></li>
             </ul>
