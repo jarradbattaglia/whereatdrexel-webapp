@@ -79,7 +79,7 @@ $(document).ready(function(){
 
     // Focus on a specific marker
     window.focusOn = function(target){
-        if($("#msearch-results")){
+        if($("#msearch-results").length != 0){
             $("#msearch-results").slideUp();
             $("#map").slideDown();
         }
@@ -120,7 +120,7 @@ $(document).ready(function(){
 
     // Search function
     var searchFor = function(searchValue) {
-        if($("#msearch-results")) {
+        if($("#msearch-results").length != 0) {
             if(searchValue === ''){
                 $("#msearch-results").slideUp();
                 $("#map").slideDown();
